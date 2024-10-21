@@ -1,2 +1,2 @@
 # Nova-Oxide
-This repo contains the logic for controlling my rgb led matrix from a raspberry-pi written in rust!
+This repo contains the logic for controlling a rgb led matrix from a raspberry-pi written in rust!
