@@ -11,7 +11,7 @@ fn main() {
     // Additional OS configuration might be needed for any mode.
     // Check https://github.com/jgarff/rpi_ws281x for more information.
     const PIN: i32 = 18;
-    const NUM_LEDS: usize = 8;
+    const NUM_LEDS: usize = 308;
     const DELAY: time::Duration = time::Duration::from_millis(1000);
 
     let mut ws = Ws2812Rpi::new(NUM_LEDS as i32, PIN).unwrap();
