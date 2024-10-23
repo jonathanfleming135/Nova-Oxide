@@ -4,5 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-smart-leds = "0.3.0"
-ws281x-rpi = "0.0.1"
+smart-leds = "0.4.0"
+# ws281x-rpi = "0.0.1" use self-compiled crate until this is updated
+ws281x-rpi = { path = "./ws281x-rpi" }
