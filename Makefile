@@ -1,7 +1,8 @@
 # Variables
 WORKING_DIR = /home/pi/nova-oxide
 CARGO = /home/pi/.cargo/bin/cargo
-BINARY_PATH = /home/pi/nova-oxide/target/debug/nova-oxide
+BINARY_PATH = $(WORKING_DIR)/target/debug/nova-oxide
+TEST_BINARY = $(WORKING_DIR)/test-binary.txt
 
 # Build the project
 build:
@@ -12,6 +13,15 @@ build:
 run:
 	ssh -t pi "sudo $(BINARY_PATH)"
 
+# Run the tests
+test: build
+	ssh pi "cd $(WORKING_DIR) \
+			&& $(CARGO) test --no-run --message-format=json -q \
+			| jq -r 'select(.executable) \
+			| .executable' \
+			| head -n 1 > $(BINARY_PATH)"
+	ssh -t pi "cd $(WORKING_DIR) && cat test-binary.txt | sudo bash"
+
 # Build and run the project
 all: build run
 
@@ -21,4 +31,4 @@ clean:
 	ssh pi "cd $(WORKING_DIR) && rm -rf target"
 
 # Phony targets
-.PHONY: build run clean
+.PHONY: build run test all clean
