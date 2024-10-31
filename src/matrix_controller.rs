@@ -18,7 +18,7 @@ impl MatrixController {
                         .pin(PIN) // GPIO 18 = PWM0
                         .count(NUM_LEDS) // Number of LEDs
                         .strip_type(StripType::Ws2812)
-                        .brightness(100) // default: 255
+                        .brightness(50) // default: 255
                         .build(),
                 )
                 .build()
@@ -49,7 +49,7 @@ impl MatrixController {
     /// # Arguments
     ///
     /// * `led_num` - Number of the led in the matrix (see example below)
-    /// * `color`   - RawColor [u8: 4] to set the led to
+    /// * `color`   - RawColor [u8: 4] to set the led to [blu, grn, red, white(unused)]
     /// * `data`    - Borrowed reference to array of RawColors for led's
     ///
     /// # Example
@@ -98,7 +98,7 @@ impl MatrixController {
     ///
     /// * `row`   - Number of the row of specified led
     /// * `col`   - Number of the column of specified led
-    /// * `color` - RawColor [u8: 4] to set the led to
+    /// * `color` - RawColor [u8: 4] to set the led to [blu, grn, red, white(unused)]
     /// * `data`  - Borrowed reference to array of RawColors for led's
     ///
     /// # Example
@@ -121,7 +121,7 @@ impl MatrixController {
     /// # Arguments
     ///
     /// * `row`   - Number of the row of led's specified
-    /// * `color` - RawColor [u8: 4] to set the led's to
+    /// * `color` - RawColor [u8: 4] to set the led's to [blu, grn, red, white(unused)]
     /// * `data`  - Borrowed reference to array of RawColors for led's
     ///
     /// # Example
@@ -145,7 +145,7 @@ impl MatrixController {
     /// # Arguments
     ///
     /// * `col`   - Number of the column of led's specified
-    /// * `color` - RawColor [u8: 4] to set the led's to
+    /// * `color` - RawColor [u8: 4] to set the led's to [blu, grn, red, white(unused)]
     /// * `data`  - Borrowed reference to array of RawColors for led's
     ///
     /// # Example

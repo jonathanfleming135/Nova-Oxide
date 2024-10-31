@@ -1,5 +1,6 @@
 pub mod matrix_controller;
 pub mod test;
+pub mod patterns;
 
 pub const PIN: i32 = 18;
 pub const NUM_ROWS: i32 = 28;
